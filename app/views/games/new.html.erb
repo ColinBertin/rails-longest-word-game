@@ -1,0 +1,14 @@
+<div class="container">
+  <ul class="list-group list-group-horizontal d-flex flex-row justify-content-between">
+    <% @letters.each do |letter| %>
+      <li class="list-group-item active"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <form action="/score" method="post" class="form-group">
+    <input type="text" name="word" placeholder="Type your longest word">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag "letters", @letters %>
+    <input type="submit" class="btn btn-primary">
+  </form>
+</div>
